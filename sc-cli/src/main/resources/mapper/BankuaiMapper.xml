@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "com.wdc.sccli.dao.BankuaiDao" >
+    <resultMap id ="BankuaiMap" type="com.wdc.sccli.entity.Bankuai">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="img" property="img"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <select id = "getBankuaiList" parameterType="Integer" resultMap="BankuaiMap" >
+        select b.name from jbbs_bankuai b
+          where b.status = ${status}
+          and  b.parentid = 1
+    </select>
+</mapper>
